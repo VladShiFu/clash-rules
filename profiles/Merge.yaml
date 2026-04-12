@@ -1,1 +1,376 @@
-empty
+# Profile Enhancement Merge Template for Clash Verge
+
+profile:
+  store-selected: true
+  
+rule-providers:
+  ai:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/ai.yaml
+    interval: 86400
+    path: ./ruleset/ai.yaml
+  warp-standart:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/warp-standart.yaml
+    interval: 86400
+    path: ./ruleset/warp-standart.yaml
+  geohide-dns:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/geohide-dns.yaml
+    interval: 86400
+    path: ./ruleset/geohide-dns.yaml
+  foreign:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/foreign.yaml
+    interval: 86400
+    path: ./ruleset/foreign.yaml
+
+rules:
+  - 'RULE-SET,geohide-dns,Geohide DNS'
+  - 'RULE-SET,warp-standart,Standart RU'
+  - 'RULE-SET,ai,Geohide DNS'
+
+warp-common: &warp-common
+  type: wireguard
+  ip:  
+  ipv6:  
+  private-key:  
+  public-key:  
+  allowed-ips: ['0.0.0.0/0']
+  udp: true
+  mtu: 1280
+  remote-dns-resolve: true
+  dns: [1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001]
+
+awg: &awg
+  amnezia-wg-option:
+   jc: 3
+   jmin: 2
+   jmax: 7
+   s1: 0
+   s2: 0
+   h1: 1
+   h2: 2
+   h4: 3
+   h3: 4  
+   i1: 
+  
+proxies:
+- name: "Стандартный 1"
+  <<: *warp-common
+  server:  
+  port:  
+  amnezia-wg-option:
+   jc: 3
+   jmin: 2
+   jmax: 7
+   s1: 0
+   s2: 0
+   h1: 1
+   h2: 2
+   h4: 3
+   h3: 4  
+   i1: <b 0xce00000...>
+- name: "Стандартный 2"
+  <<: *warp-common
+  server: 
+  port: 
+  amnezia-wg-option:
+   jc: 3
+   jmin: 2
+   jmax: 7
+   s1: 0
+   s2: 0
+   h1: 1
+   h2: 2
+   h4: 3
+   h3: 4
+   i1: <b 0xc70000000...>
+- name: "Стандартный 3"
+  <<: *warp-common
+  server: 
+  port: 
+  amnezia-wg-option:
+   jc: 3
+   jmin: 2
+   jmax: 7
+   s1: 0
+   s2: 0
+   h1: 1
+   h2: 2
+   h4: 3
+   h3: 4   
+   i1: <b 0x494e5649...>
+   i2: <b 0x5349502...>
+
+- name: "🇵🇱 PL"
+  <<: [ *warp-common, *awg ]
+  server: 
+  port: 
+- name: "🇪🇪 EE"
+  <<: [ *warp-common, *awg ]
+  server: 
+  port:   
+- name: "🇳🇱 NL"
+  <<: [ *warp-common, *awg ]
+  server: 
+  port:   
+- name: "🇫🇮 FI"
+  <<: [ *warp-common, *awg ]
+  server: 
+  port: 
+- name: "🇺🇸 US"
+  <<: [ *warp-common, *awg ]
+  server: 
+  port: 
+
+- name: dns geohide
+  type: wireguard
+  server: 
+  port: 
+  ip: 
+  ipv6: 
+  private-key: 
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1280
+  remote-dns-resolve: true
+  dns: [...]
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xce0000000...>
+
+- name: dns xbox
+  type: wireguard
+  server: 
+  port: 
+  ip: 
+  ipv6: 
+  private-key: 
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1280
+  remote-dns-resolve: true
+  dns: [...]
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc70000000...>
+
+- name: 🇵🇱 PL-2
+  type: wireguard
+  server: 
+  port: 
+  ip: 
+  private-key: 
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: [...]
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc30000000...>
+
+- name: 🇳🇴 NO-7
+  type: wireguard
+  server:
+  port: 
+  ip: 
+  ipv6: 
+  private-key:
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: [...]
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc30000000...>
+
+- name: 🇳🇱 NL-147
+  type: wireguard
+  server:
+  port: 
+  ip: 
+  ipv6:
+  private-key:
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: []
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc30000...>
+
+- name: 🇺🇸 US-80
+  type: wireguard
+  server:
+  port: 
+  ip: 
+  ipv6:
+  private-key:
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: [...]
+  amnezia-wg-option:
+    jc: 3
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc30000000...>
+
+- name: 🇳🇱 NL-143
+  type: wireguard
+  server: 
+  port: 
+  ip: 
+  ipv6:
+  private-key: 
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: []
+  amnezia-wg-option:
+    jc: 4
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc70000...>
+
+- name: 🇳🇴 NO-6
+  type: wireguard
+  server:
+  port: 
+  ip: 
+  ipv6:
+  private-key:
+  public-key: 
+  allowed-ips: ['0.0.0.0/0', '::/0']
+  udp: true
+  mtu: 1420
+  remote-dns-resolve: true
+  dns: []
+  amnezia-wg-option:
+    jc: 4
+    jmin: 2
+    jmax: 7
+    s1: 0
+    s2: 0
+    h1: 1
+    h2: 2
+    h3: 3
+    h4: 4
+    i1: <b 0xc70000...>
+
+proxy-groups:
+- name: Standart RU
+  type: fallback
+  icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
+  proxies:
+    - "Стандартный 1"
+    - "Стандартный 2"
+    - "Стандартный 3"
+    # - DIRECT
+  url: 'http://speed.cloudflare.com/'
+  interval: 300
+- name: Geohide DNS
+  type: fallback
+  icon: https://www.vectorlogo.zone/logos/ghostery/ghostery-icon.svg
+  proxies:
+    - dns geohide
+    - dns xbox
+    # - DIRECT
+  url: 'http://speed.cloudflare.com/'
+  interval: 300
+- name: llimonix
+  type: fallback
+  icon: https://www.vectorlogo.zone/logos/linode/linode-icon.svg
+  proxies:
+    - "🇫🇮 FI"
+    - "🇳🇱 NL"
+    - "🇵🇱 PL"
+    - "🇪🇪 EE"
+    - "🇺🇸 US"
+    # - DIRECT
+  url: 'http://speed.cloudflare.com/'
+  interval: 300
+- name: Proton
+  type: fallback
+  icon: https://res.cloudinary.com/dbulfrlrz/image/upload/v1703162849/static/logos/icons/vpn_f9embt.svg
+  proxies:
+    - 🇳🇴 NO-7
+    - 🇵🇱 PL-2
+    - 🇳🇱 NL-147
+    - 🇳🇴 NO-6
+    - 🇳🇱 NL-143
+    - 🇺🇸 US-80
+    # - DIRECT
+  url: 'http://speed.cloudflare.com/'
+  unified-delay: true
+  interval: 300
+
