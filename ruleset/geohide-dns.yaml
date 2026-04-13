@@ -1,2 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,jetbrains.com
+  - DOMAIN-SUFFIX,commandbar-marketing-site.netlify.app
+  - DOMAIN-SUFFIX,commandbar.ghost.io
+  - DOMAIN-SUFFIX,command.ai
+  - DOMAIN-SUFFIX,commandbar.com
