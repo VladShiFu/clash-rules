@@ -6,6 +6,7 @@ payload:
   - DOMAIN-SUFFIX,anidub.com
   - DOMAIN-SUFFIX,cloudflare-dns.com
   - DOMAIN-SUFFIX,intel.com
+  - DOMAIN-SUFFIX,keycombiner.com
   - DOMAIN-SUFFIX,kickasstorrents.to
   - DOMAIN-SUFFIX,linkedin.com
   - DOMAIN-SUFFIX,mouser.com
@@ -14,7 +15,7 @@ payload:
   - DOMAIN-SUFFIX,ntc.party
   - DOMAIN-SUFFIX,patreon.com
   - DOMAIN-SUFFIX,qualcomm.com
-  - DOMAIN-SUFFIX, redis.com
+  - DOMAIN-SUFFIX,redis.com
   - DOMAIN-SUFFIX,refactoring.guru
   - DOMAIN-SUFFIX,depositphotos.com
   - DOMAIN-SUFFIX,signal.org
