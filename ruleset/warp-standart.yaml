@@ -117,5 +117,6 @@ payload:
   - DOMAIN-SUFFIX,ggpht.com
   - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,gvt2.com
-
-  
+  # Typing practice
+  - DOMAIN-SUFFIX,monkeytype.com
+  - DOMAIN-SUFFIX,keybr.com
