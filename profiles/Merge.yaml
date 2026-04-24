@@ -1,9 +1,16 @@
 # Profile Enhancement Merge Template for Clash Verge
+# Mihomo Docs https://wiki.metacubex.one/en/config/proxy-groups/
+# file path .../io.github.clash-verge-rev.clash-verge-rev/profiles/Merge.yaml
+# Clash Verge UI -> Profiles -> Global Extend Config
+
+# !!! Don't forget to replace all parameters containing - [hidden]
 
 profile:
   store-selected: true
 
-# Общий шаблон для rule-provider
+# =============================================================================
+# RULE PROVIDERS
+# =============================================================================
 rp-common: &rp-common
   type: http
   behavior: classical
@@ -27,11 +34,17 @@ rule-providers:
     url: https://raw.githubusercontent.com/VladS@{fssafklgsklf}sf&%$&|@!.,uleset/telegram.yaml
     path: ./ruleset/telegram.yaml
 
+# =============================================================================
+# RULES
+# =============================================================================
 rules:
   - 'RULE-SET,geohide-dns,Geohide DNS'
   - 'RULE-SET,warp-standart,Standart RU'
   - 'RULE-SET,ai,Geohide DNS'
 
+# =============================================================================
+# PROXY TEMPLATES
+# =============================================================================
 wg-common: &wg-common
   type: wireguard
   allowed-ips: [ '0.0.0.0/0', '::/0' ]
@@ -75,118 +88,140 @@ proton-common: &proton-common
     <<: *awg
     i1: <b 0x[hidden]928896>
 
+# =============================================================================
+# PROXIES
+# =============================================================================
 proxies:
-- name: "Стандартный 1"
-  <<: [*wg-common, *warp-common]
-  server: 162.15[hidden]
-  port: [hidden]0
-  amnezia-wg-option:
-    <<: *awg
-    i1: <b 0x[hidden]166de2d8>
+  # ---------------------------------------------------------------------------
+  # Standart RU
+  # ---------------------------------------------------------------------------
+  - name: "Стандартный 1"
+    <<: [*wg-common, *warp-common]
+    server: 162.15[hidden]
+    port: [hidden]0
+    amnezia-wg-option:
+      <<: *awg
+      i1: <b 0x[hidden]166de2d8>
 
-- name: "Стандартный 2"
-  <<: [*wg-common, *warp-common]
-  server: 162.15[hidden]
-  port: [hidden]1
-  amnezia-wg-option:
-    <<: *awg
-    i1: <b 0x[hidden]dd0f3a5d4>
+  - name: "Стандартный 2"
+    <<: [*wg-common, *warp-common]
+    server: 162.15[hidden]
+    port: [hidden]1
+    amnezia-wg-option:
+      <<: *awg
+      i1: <b 0x[hidden]dd0f3a5d4>
 
-- name: "Стандартный 3"
-  <<: [*wg-common, *warp-common]
-  server: 162.15[hidden]
-  port: 5[hidden]
-  amnezia-wg-option:
-    <<: *awg
-    i1: <b 0x[hidden]20300d0a0d0a>
-    i2: <b 0x[hidden]0300d0a0d0a>
+  - name: "Стандартный 3"
+    <<: [*wg-common, *warp-common]
+    server: 162.15[hidden]
+    port: 5[hidden]
+    amnezia-wg-option:
+      <<: *awg
+      i1: <b 0x[hidden]20300d0a0d0a>
+      i2: <b 0x[hidden]0300d0a0d0a>
 
-- name: "🇵🇱 PL"
-  <<: *llimonix-common
-  server: p[hidden]td
-- name: "🇪🇪 EE"
-  <<: *llimonix-common
-  server: e[hidden]d
-- name: "🇳🇱 NL"
-  <<: *llimonix-common
-  server: nl.[hidden]
-- name: "🇫🇮 FI"
-  <<: *llimonix-common
-  server: [hidden]kvy.ltd
-- name: "🇺🇸 US"
-  <<: *llimonix-common
-  server: [hidden]ukvy.ltd
+  # ---------------------------------------------------------------------------
+  # Llimonix
+  # ---------------------------------------------------------------------------
+  - name: "🇵🇱 PL"
+    <<: *llimonix-common
+    server: p[hidden]td
 
-- name: dns geohide
-  <<: [*wg-common, *warp-common]
-  server: 162.15[hidden]
-  port: 3[hidden]6
-  ipv6: 2606:47[hidden]29:cad9
-  private-key: /8geA4[hidden]Zk=
-  dns: [45[hidden]4::1]
-  amnezia-wg-option:
-    <<: *awg
-    i1: <b 0x[hidden]783460e166de2d8>
+  - name: "🇪🇪 EE"
+    <<: *llimonix-common
+    server: e[hidden]d
 
-- name: dns xbox
-  <<: [*wg-common, *warp-common]
-  server: 162.15[hidden]
-  port: 5[hidden]
-  ipv6: 2606:470[hidden]dd:bd29:cad9
-  private-key: /8geA4[hidden]H6LZk=
-  dns: [17[hidden]7, 8[hidden]:4:2::5d1b, 2a0[hidden]ed]
-  amnezia-wg-option:
-    <<: *awg
-    i1: <b 0x[hidden]ba54edd0f3a5d4>
+  - name: "🇳🇱 NL"
+    <<: *llimonix-common
+    server: nl.[hidden]
 
-- name: 🇨🇭 CH-9
-  <<: *proton-common
-  server: 149.8[hidden]
-  private-key: uJYRTEtAS[hidden]pHyhVQ=
-  public-key: 2w/1u8p[hidden]Ze+cDTo=
+  - name: "🇫🇮 FI"
+    <<: *llimonix-common
+    server: f[hidden]kvy.ltd
 
-- name: 🇷🇴 RO-9
-  <<: *proton-common
-  server: 138.19[hidden]
-  private-key: UPrGJQthX[hidden]+s6mEg=
-  public-key: +DE6qrC[hidden]LM4rcwg=
+  - name: "🇺🇸 US"
+    <<: *llimonix-common
+    server: u[hidden]ukvy.ltd
 
-- name: 🇳🇱 NL-258
-  <<: *proton-common
-  server: 21[hidden]
-  private-key: MKHjtzaRw[hidden]IE/2ks=
-  public-key: rW/wDBD[hidden]tToo+04=
+  # ---------------------------------------------------------------------------
+  # Geohide DNS
+  # ---------------------------------------------------------------------------
+  - name: dns geohide
+    <<: [*wg-common, *warp-common]
+    server: 162.15[hidden]
+    port: 3[hidden]6
+    ipv6: 2606:47[hidden]29:cad9
+    private-key: /8geA4[hidden]Zk=
+    dns: [45[hidden]4::1]
+    amnezia-wg-option:
+      <<: *awg
+      i1: <b 0x[hidden]783460e166de2d8>
 
-- name: 🇵🇱 PL-17
-  <<: *proton-common
-  server: 149.10[hidden]
-  private-key: YA8ODUrsz[hidden]+tZDGM=
-  public-key: IcOIsjk[hidden]THUSLjE=
+  - name: dns xbox
+    <<: [*wg-common, *warp-common]
+    server: 162.15[hidden]
+    port: 5[hidden]
+    ipv6: 2606:470[hidden]dd:bd29:cad9
+    private-key: /8geA4[hidden]H6LZk=
+    dns: [17[hidden]7, 8[hidden]:4:2::5d1b, 2a0[hidden]ed]
+    amnezia-wg-option:
+      <<: *awg
+      i1: <b 0x[hidden]ba54edd0f3a5d4>
 
-- name: 🇺🇸 US-67
-  <<: *proton-common
-  server: 151.24[hidden]
-  private-key: iHq9aLa8C[hidden]TfTC0k=
-  public-key: 6MQmNyC[hidden]kNNlNAI=
+  # ---------------------------------------------------------------------------
+  # Proton
+  # ---------------------------------------------------------------------------
+  - name: 🇨🇭 CH-9
+    <<: *proton-common
+    server: 149.8[hidden]
+    private-key: uJYRTEtAS[hidden]pHyhVQ=
+    public-key: 2w/1u8p[hidden]Ze+cDTo=
 
-- name: 🇳🇱 NL-49
-  <<: *proton-common
-  server: 169.15[hidden]
-  private-key: 6OzX/KP9H[hidden]GzI/XA=
-  public-key: /nzl9zy[hidden]Wm1ohUw=
+  - name: 🇷🇴 RO-9
+    <<: *proton-common
+    server: 138.19[hidden]
+    private-key: UPrGJQthX[hidden]+s6mEg=
+    public-key: +DE6qrC[hidden]LM4rcwg=
 
-- name: 🇳🇴 NO-5
-  <<: *proton-common
-  server: 9[hidden]3.205.167
-  private-key: 2IRMhmDx0[hidden]+mGPmQ=
-  public-key: 2s+PN1/[hidden]6+hxORQ=
+  - name: 🇳🇱 NL-258
+    <<: *proton-common
+    server: 21[hidden]
+    private-key: MKHjtzaRw[hidden]IE/2ks=
+    public-key: rW/wDBD[hidden]tToo+04=
 
-- name: 🇺🇸 US-111
-  <<: *proton-common
-  server: 149.3[hidden]
-  private-key: oG1gG3vcr[hidden]I7FUHw=
-  public-key: 4om6JQm[hidden]iZwxAAc=
+  - name: 🇵🇱 PL-17
+    <<: *proton-common
+    server: 149.10[hidden]
+    private-key: YA8ODUrsz[hidden]+tZDGM=
+    public-key: IcOIsjk[hidden]THUSLjE=
 
+  - name: 🇺🇸 US-67
+    <<: *proton-common
+    server: 151.24[hidden]
+    private-key: iHq9aLa8C[hidden]TfTC0k=
+    public-key: 6MQmNyC[hidden]kNNlNAI=
+
+  - name: 🇳🇱 NL-49
+    <<: *proton-common
+    server: 169.15[hidden]
+    private-key: 6OzX/KP9H[hidden]GzI/XA=
+    public-key: /nzl9zy[hidden]Wm1ohUw=
+
+  - name: 🇳🇴 NO-5
+    <<: *proton-common
+    server: 9[hidden]3.205.167
+    private-key: 2IRMhmDx0[hidden]+mGPmQ=
+    public-key: 2s+PN1/[hidden]6+hxORQ=
+
+  - name: 🇺🇸 US-111
+    <<: *proton-common
+    server: 149.3[hidden]
+    private-key: oG1gG3vcr[hidden]I7FUHw=
+    public-key: 4om6JQm[hidden]iZwxAAc=
+
+# =============================================================================
+# PROXY GROUPS
+# =============================================================================
 group-common: &group-common
   url: 'https://www.gstatic.com/generate_204'
   interval: 300
@@ -196,42 +231,46 @@ group-common: &group-common
   tolerance: 80
 
 proxy-groups:
-- name: Standart RU
-  <<: *group-common
-  icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
-  proxies:
-    - "Стандартный 1"
-    - "Стандартный 2"
-    - "Стандартный 3"
-    # - DIRECT
-- name: Geohide DNS
-  <<: *group-common
-  icon: https://www.vectorlogo.zone/logos/ghostery/ghostery-icon.svg
-  proxies:
-    - dns geohide
-    - dns xbox
-    # - DIRECT
-- name: llimonix
-  <<: *group-common
-  icon: htt[hidden]vg
-  proxies:
-    - "🇫🇮 FI"
-    - "🇳🇱 NL"
-    - "🇵🇱 PL"
-    - "🇪🇪 EE"
-    - "🇺🇸 US"
-    # - DIRECT
-- name: Proton
-  <<: *group-common
-  icon: https://res.cloudinary.com/dbulfrlrz/image/upload/v1703162849/static/logos/icons/vpn_f9embt.svg
-  proxies:
-    - 🇳🇱 NL-49
-    - 🇳🇴 NO-5
-    - 🇵🇱 PL-17
-    - 🇨🇭 CH-9
-    - 🇷🇴 RO-9
-    - 🇳🇱 NL-258
-    - 🇺🇸 US-67
-    - 🇺🇸 US-111
-    # - DIRECT
-  # unified-delay: true
+
+  - name: Standart RU
+    <<: *group-common
+    icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
+    proxies:
+      - "Стандартный 1"
+      - "Стандартный 2"
+      - "Стандартный 3"
+      # - DIRECT
+
+  - name: Geohide DNS
+    <<: *group-common
+    icon: https://www.vectorlogo.zone/logos/ghostery/ghostery-icon.svg
+    proxies:
+      - "dns geohide"
+      - "dns xbox"
+      # - DIRECT
+
+  - name: llimonix
+    <<: *group-common
+    icon: htt[hidden]vg
+    proxies:
+      - "🇫🇮 FI"
+      - "🇳🇱 NL"
+      - "🇵🇱 PL"
+      - "🇪🇪 EE"
+      - "🇺🇸 US"
+      # - DIRECT
+
+  - name: Proton
+    <<: *group-common
+    icon: https://res.cloudinary.com/dbulfrlrz/image/upload/v1703162849/static/logos/icons/vpn_f9embt.svg
+    proxies:
+      - "🇳🇱 NL-49"
+      - "🇳🇴 NO-5"
+      - "🇵🇱 PL-17"
+      - "🇨🇭 CH-9"
+      - "🇷🇴 RO-9"
+      - "🇳🇱 NL-258"
+      - "🇺🇸 US-67"
+      - "🇺🇸 US-111"
+      # - DIRECT
+    # unified-delay: true
