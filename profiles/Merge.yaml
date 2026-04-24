@@ -2,354 +2,218 @@
 
 profile:
   store-selected: true
-  
+
+# Общий шаблон для rule-provider
+rp-common: &rp-common
+  type: http
+  behavior: classical
+  interval: 86400
+
 rule-providers:
   ai:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/ai.yaml
-    interval: 86400
+    <<: *rp-common
+    url: https://raw.githubusercontent.com/Vl@{fssafklgsklf}sf&%$&|@!.,n/ruleset/ai.yaml
     path: ./ruleset/ai.yaml
   warp-standart:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/warp-standart.yaml
-    interval: 86400
+    <<: *rp-common
+    url: https://raw.githubusercontent.com/Vl@{fssafklgsklf}sf&%$&|@!.,eset/warp-standart.yaml
     path: ./ruleset/warp-standart.yaml
   geohide-dns:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/geohide-dns.yaml
-    interval: 86400
+    <<: *rp-common
+    url: https://raw.githubusercontent.com/V@{fssafklgsklf}sf&%$&|@!.,eads/main/ruleset/geohide-dns.yaml
     path: ./ruleset/geohide-dns.yaml
-  foreign:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/foreign.yaml
-    interval: 86400
-    path: ./ruleset/foreign.yaml
+  telegram:
+    <<: *rp-common
+    url: https://raw.githubusercontent.com/VladS@{fssafklgsklf}sf&%$&|@!.,uleset/telegram.yaml
+    path: ./ruleset/telegram.yaml
 
 rules:
   - 'RULE-SET,geohide-dns,Geohide DNS'
   - 'RULE-SET,warp-standart,Standart RU'
   - 'RULE-SET,ai,Geohide DNS'
 
-warp-common: &warp-common
+wg-common: &wg-common
   type: wireguard
-  ip:  
-  ipv6:  
-  private-key:  
-  public-key:  
-  allowed-ips: ['0.0.0.0/0']
+  allowed-ips: [ '0.0.0.0/0', '::/0' ]
   udp: true
   mtu: 1280
   remote-dns-resolve: true
-  dns: [1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001]
+  persistent-keepalive: 25
+
+warp-common: &warp-common
+  ip: 172.16.[hidden]
+  ipv6: 2606:4700:110:80c4:[hidden]
+  private-key: h8Aqyzr70E0w[hidden]lsQe4ff5UxKXw5o0=
+  public-key: bmXOC+F1FxEM[hidden]zH0JuVo51h2wPfgyo=
+  dns: [1[hidden]700::1001]
 
 awg: &awg
+  jc: 3
+  jmin: 2
+  jmax: 7
+  s1: 0
+  s2: 0
+  h1: 1
+  h2: 2
+  h3: 3
+  h4: 4
+  i1: <b 0x[hidden]066e>
+
+llimonix-common: &llimonix-common
+  <<: [*wg-common, *warp-common]
+  port: [hidden]0
   amnezia-wg-option:
-   jc: 3
-   jmin: 2
-   jmax: 7
-   s1: 0
-   s2: 0
-   h1: 1
-   h2: 2
-   h4: 3
-   h3: 4  
-   i1: 
-  
+    <<: *awg
+
+proton-common: &proton-common
+  <<: *wg-common
+  port: [hidden]0
+  ip: [hidden]2/32
+  ipv6: [hidden]:2/128
+  dns: [10.[hidden]4::2:1]
+  amnezia-wg-option:
+    <<: *awg
+    i1: <b 0x[hidden]928896>
+
 proxies:
 - name: "Стандартный 1"
-  <<: *warp-common
-  server:  
-  port:  
+  <<: [*wg-common, *warp-common]
+  server: 162.15[hidden]
+  port: [hidden]0
   amnezia-wg-option:
-   jc: 3
-   jmin: 2
-   jmax: 7
-   s1: 0
-   s2: 0
-   h1: 1
-   h2: 2
-   h4: 3
-   h3: 4  
-   i1: <b 0xce00000...>
+    <<: *awg
+    i1: <b 0x[hidden]166de2d8>
+
 - name: "Стандартный 2"
-  <<: *warp-common
-  server: 
-  port: 
+  <<: [*wg-common, *warp-common]
+  server: 162.15[hidden]
+  port: [hidden]1
   amnezia-wg-option:
-   jc: 3
-   jmin: 2
-   jmax: 7
-   s1: 0
-   s2: 0
-   h1: 1
-   h2: 2
-   h4: 3
-   h3: 4
-   i1: <b 0xc70000000...>
+    <<: *awg
+    i1: <b 0x[hidden]dd0f3a5d4>
+
 - name: "Стандартный 3"
-  <<: *warp-common
-  server: 
-  port: 
+  <<: [*wg-common, *warp-common]
+  server: 162.15[hidden]
+  port: 5[hidden]
   amnezia-wg-option:
-   jc: 3
-   jmin: 2
-   jmax: 7
-   s1: 0
-   s2: 0
-   h1: 1
-   h2: 2
-   h4: 3
-   h3: 4   
-   i1: <b 0x494e5649...>
-   i2: <b 0x5349502...>
+    <<: *awg
+    i1: <b 0x[hidden]20300d0a0d0a>
+    i2: <b 0x[hidden]0300d0a0d0a>
 
 - name: "🇵🇱 PL"
-  <<: [ *warp-common, *awg ]
-  server: 
-  port: 
+  <<: *llimonix-common
+  server: p[hidden]td
 - name: "🇪🇪 EE"
-  <<: [ *warp-common, *awg ]
-  server: 
-  port:   
+  <<: *llimonix-common
+  server: e[hidden]d
 - name: "🇳🇱 NL"
-  <<: [ *warp-common, *awg ]
-  server: 
-  port:   
+  <<: *llimonix-common
+  server: nl.[hidden]
 - name: "🇫🇮 FI"
-  <<: [ *warp-common, *awg ]
-  server: 
-  port: 
+  <<: *llimonix-common
+  server: [hidden]kvy.ltd
 - name: "🇺🇸 US"
-  <<: [ *warp-common, *awg ]
-  server: 
-  port: 
+  <<: *llimonix-common
+  server: [hidden]ukvy.ltd
 
 - name: dns geohide
-  type: wireguard
-  server: 
-  port: 
-  ip: 
-  ipv6: 
-  private-key: 
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1280
-  remote-dns-resolve: true
-  dns: [...]
+  <<: [*wg-common, *warp-common]
+  server: 162.15[hidden]
+  port: 3[hidden]6
+  ipv6: 2606:47[hidden]29:cad9
+  private-key: /8geA4[hidden]Zk=
+  dns: [45[hidden]4::1]
   amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xce0000000...>
+    <<: *awg
+    i1: <b 0x[hidden]783460e166de2d8>
 
 - name: dns xbox
-  type: wireguard
-  server: 
-  port: 
-  ip: 
-  ipv6: 
-  private-key: 
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1280
-  remote-dns-resolve: true
-  dns: [...]
+  <<: [*wg-common, *warp-common]
+  server: 162.15[hidden]
+  port: 5[hidden]
+  ipv6: 2606:470[hidden]dd:bd29:cad9
+  private-key: /8geA4[hidden]H6LZk=
+  dns: [17[hidden]7, 8[hidden]:4:2::5d1b, 2a0[hidden]ed]
   amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc70000000...>
+    <<: *awg
+    i1: <b 0x[hidden]ba54edd0f3a5d4>
 
-- name: 🇵🇱 PL-2
-  type: wireguard
-  server: 
-  port: 
-  ip: 
-  private-key: 
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: [...]
-  amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc30000000...>
+- name: 🇨🇭 CH-9
+  <<: *proton-common
+  server: 149.8[hidden]
+  private-key: uJYRTEtAS[hidden]pHyhVQ=
+  public-key: 2w/1u8p[hidden]Ze+cDTo=
 
-- name: 🇳🇴 NO-7
-  type: wireguard
-  server:
-  port: 
-  ip: 
-  ipv6: 
-  private-key:
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: [...]
-  amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc30000000...>
+- name: 🇷🇴 RO-9
+  <<: *proton-common
+  server: 138.19[hidden]
+  private-key: UPrGJQthX[hidden]+s6mEg=
+  public-key: +DE6qrC[hidden]LM4rcwg=
 
-- name: 🇳🇱 NL-147
-  type: wireguard
-  server:
-  port: 
-  ip: 
-  ipv6:
-  private-key:
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: []
-  amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc30000...>
+- name: 🇳🇱 NL-258
+  <<: *proton-common
+  server: 21[hidden]
+  private-key: MKHjtzaRw[hidden]IE/2ks=
+  public-key: rW/wDBD[hidden]tToo+04=
 
-- name: 🇺🇸 US-80
-  type: wireguard
-  server:
-  port: 
-  ip: 
-  ipv6:
-  private-key:
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: [...]
-  amnezia-wg-option:
-    jc: 3
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc30000000...>
+- name: 🇵🇱 PL-17
+  <<: *proton-common
+  server: 149.10[hidden]
+  private-key: YA8ODUrsz[hidden]+tZDGM=
+  public-key: IcOIsjk[hidden]THUSLjE=
 
-- name: 🇳🇱 NL-143
-  type: wireguard
-  server: 
-  port: 
-  ip: 
-  ipv6:
-  private-key: 
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: []
-  amnezia-wg-option:
-    jc: 4
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc70000...>
+- name: 🇺🇸 US-67
+  <<: *proton-common
+  server: 151.24[hidden]
+  private-key: iHq9aLa8C[hidden]TfTC0k=
+  public-key: 6MQmNyC[hidden]kNNlNAI=
 
-- name: 🇳🇴 NO-6
-  type: wireguard
-  server:
-  port: 
-  ip: 
-  ipv6:
-  private-key:
-  public-key: 
-  allowed-ips: ['0.0.0.0/0', '::/0']
-  udp: true
-  mtu: 1420
-  remote-dns-resolve: true
-  dns: []
-  amnezia-wg-option:
-    jc: 4
-    jmin: 2
-    jmax: 7
-    s1: 0
-    s2: 0
-    h1: 1
-    h2: 2
-    h3: 3
-    h4: 4
-    i1: <b 0xc70000...>
+- name: 🇳🇱 NL-49
+  <<: *proton-common
+  server: 169.15[hidden]
+  private-key: 6OzX/KP9H[hidden]GzI/XA=
+  public-key: /nzl9zy[hidden]Wm1ohUw=
+
+- name: 🇳🇴 NO-5
+  <<: *proton-common
+  server: 9[hidden]3.205.167
+  private-key: 2IRMhmDx0[hidden]+mGPmQ=
+  public-key: 2s+PN1/[hidden]6+hxORQ=
+
+- name: 🇺🇸 US-111
+  <<: *proton-common
+  server: 149.3[hidden]
+  private-key: oG1gG3vcr[hidden]I7FUHw=
+  public-key: 4om6JQm[hidden]iZwxAAc=
+
+group-common: &group-common
+  url: 'https://www.gstatic.com/generate_204'
+  interval: 300
+  timeout: 3000
+  max-failed-times: 2
+  type: url-test
+  tolerance: 80
 
 proxy-groups:
 - name: Standart RU
-  type: fallback
+  <<: *group-common
   icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
   proxies:
     - "Стандартный 1"
     - "Стандартный 2"
     - "Стандартный 3"
     # - DIRECT
-  url: 'http://speed.cloudflare.com/'
-  interval: 300
 - name: Geohide DNS
-  type: fallback
+  <<: *group-common
   icon: https://www.vectorlogo.zone/logos/ghostery/ghostery-icon.svg
   proxies:
     - dns geohide
     - dns xbox
     # - DIRECT
-  url: 'http://speed.cloudflare.com/'
-  interval: 300
 - name: llimonix
-  type: fallback
-  icon: https://www.vectorlogo.zone/logos/linode/linode-icon.svg
+  <<: *group-common
+  icon: htt[hidden]vg
   proxies:
     - "🇫🇮 FI"
     - "🇳🇱 NL"
@@ -357,20 +221,17 @@ proxy-groups:
     - "🇪🇪 EE"
     - "🇺🇸 US"
     # - DIRECT
-  url: 'http://speed.cloudflare.com/'
-  interval: 300
 - name: Proton
-  type: fallback
+  <<: *group-common
   icon: https://res.cloudinary.com/dbulfrlrz/image/upload/v1703162849/static/logos/icons/vpn_f9embt.svg
   proxies:
-    - 🇳🇴 NO-7
-    - 🇵🇱 PL-2
-    - 🇳🇱 NL-147
-    - 🇳🇴 NO-6
-    - 🇳🇱 NL-143
-    - 🇺🇸 US-80
+    - 🇳🇱 NL-49
+    - 🇳🇴 NO-5
+    - 🇵🇱 PL-17
+    - 🇨🇭 CH-9
+    - 🇷🇴 RO-9
+    - 🇳🇱 NL-258
+    - 🇺🇸 US-67
+    - 🇺🇸 US-111
     # - DIRECT
-  url: 'http://speed.cloudflare.com/'
-  unified-delay: true
-  interval: 300
-
+  # unified-delay: true
