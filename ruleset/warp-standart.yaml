@@ -31,6 +31,7 @@ payload:
   - DOMAIN-SUFFIX,x.com
   - DOMAIN-SUFFIX,xhamster.com
   - DOMAIN-SUFFIX,xhamsterlive.com
+  - DOMAIN-SUFFIX,wayfern.com
   # torrent trackers
   - DOMAIN-SUFFIX,nnmclub.ch
   - DOMAIN-SUFFIX,nnmclub.to
