@@ -26,7 +26,6 @@ payload:
   - DOMAIN-SUFFIX,tdesktop.com
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,cdn-telegram.org
-  - DOMAIN-SUFFIX,openh264.org
 #  - IP-CIDR,100.24.0.0/13
 #  - IP-CIDR,104.16.0.0/12
 #  - IP-CIDR,108.177.0.0/17
