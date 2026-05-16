@@ -33,6 +33,7 @@ payload:
   - DOMAIN-SUFFIX,xhamsterlive.com
   - DOMAIN-SUFFIX,wayfern.com
   - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,keyboard-layout-editor.com
   # torrent trackers
   - DOMAIN-SUFFIX,nnmclub.ch
   - DOMAIN-SUFFIX,nnmclub.to
