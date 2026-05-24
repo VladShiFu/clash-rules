@@ -11,6 +11,7 @@ payload:
   - DOMAIN-SUFFIX,generativeai.google
   - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
   - DOMAIN-SUFFIX,gemini.gstatic.com
+  - DOMAIN-SUFFIX,one.google.com
   # Claude
   - DOMAIN-SUFFIX,claude.com
   - DOMAIN-SUFFIX,claudeusercontent.com
