@@ -68,11 +68,5 @@ proxy-groups:
 
   - name: foreign-2-group
     <<: *group-common
-    icon: https://www.vectorlogo.zone/logos/linode/linode-icon.svg
     use:
       - foreign-2-proxies
-
-  - name: foreign-3-group
-    <<: *group-common
-    use:
-      - foreign-3-proxies
