@@ -11,6 +11,7 @@ rules:
   - 'RULE-SET,foreign-1-rules,foreign-1-group'
   - 'RULE-SET,geohide-rules,geohide-group'
   - 'RULE-SET,warp-rules,warp-group'
+  - 'MATCH,DIRECT'
 
 # =============================================================================
 # RULE PROVIDERS
