@@ -1,0 +1,77 @@
+allow-lan: true
+
+find-process-mode: off
+
+mode: rule
+
+# =============================================================================
+# RULES
+# =============================================================================
+rules:
+  - 'RULE-SET,foreign-1-rules,foreign-1-group'
+  - 'RULE-SET,geohide-rules,geohide-group'
+  - 'RULE-SET,warp-rules,warp-group'
+
+# =============================================================================
+# RULE PROVIDERS
+# =============================================================================
+rp-common: &rp-common
+  type: http
+  behavior: classical
+  interval: 3600
+
+rule-providers:
+  warp-rules:
+    <<: *rp-common
+    url: 'https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/warp.yaml'
+  geohide-rules:
+    <<: *rp-common
+    url: 'https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/geohide.yaml'
+  foreign-1-rules:
+    <<: *rp-common
+    url: 'https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/foreign-1.yaml'
+  foreign-2-rules:
+    <<: *rp-common
+    url: 'https://raw.githubusercontent.com/VladShiFu/clash-rules/refs/heads/main/ruleset/foreign-2.yaml'
+
+# =============================================================================
+# PROXY GROUPS
+# =============================================================================
+group-common: &group-common
+  url: 'https://www.gstatic.com/generate_204'
+  interval: 300
+  timeout: 3000
+  max-failed-times: 2
+  type: url-test
+  tolerance: 70
+
+proxy-groups:
+  - name: warp-group
+    <<: *group-common
+    icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
+    use:
+      - warp-proxies
+
+  - name: geohide-group
+    <<: *group-common
+    icon: https://www.vectorlogo.zone/logos/ghostery/ghostery-icon.svg
+    use:
+      - geohide-proxies
+
+  - name: foreign-1-group
+    <<: *group-common
+    icon: https://res.cloudinary.com/dbulfrlrz/image/upload/v1703162849/static/logos/icons/vpn_f9embt.svg
+    use:
+      - foreign-1-proxies
+    unified-delay: false
+
+  - name: foreign-2-group
+    <<: *group-common
+    icon: https://www.vectorlogo.zone/logos/linode/linode-icon.svg
+    use:
+      - foreign-2-proxies
+
+  - name: foreign-3-group
+    <<: *group-common
+    use:
+      - foreign-3-proxies
