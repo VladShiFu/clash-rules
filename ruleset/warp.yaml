@@ -63,6 +63,16 @@ payload:
   # Instagram
   - DOMAIN-SUFFIX,instagram.com
   - DOMAIN-SUFFIX,cdninstagram.com
+  - DOMAIN-SUFFIX,ig.me
+  # Facebook
+  - DOMAIN-SUFFIX,facebook.net
+  - DOMAIN-SUFFIX,facebook.com
+  - DOMAIN-SUFFIX,fbcdn.net
+  - DOMAIN-SUFFIX,fb.com
+  - DOMAIN-SUFFIX,fb.me
+  - DOMAIN-SUFFIX,fbsbx.com
+  - DOMAIN-SUFFIX,tfbnw.net
+  - DOMAIN-SUFFIX,thefacebook.com
   # Discord
   - DOMAIN-SUFFIX,discordcdn.com
   - DOMAIN-SUFFIX,discordapp.net
