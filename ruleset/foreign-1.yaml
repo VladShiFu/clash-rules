@@ -43,3 +43,47 @@ payload:
   - IP-ASN,59930,no-resolve
   - IP-ASN,62014,no-resolve
   - IP-ASN,62041,no-resolve
+# =============================================================================
+# TIK-TOK
+# =============================================================================
+  - DOMAIN-SUFFIX,tiktok.com
+  - DOMAIN-SUFFIX,tiktokv.eu
+  - DOMAIN-SUFFIX,byteoversea.com
+  - DOMAIN-SUFFIX,byteoversea.com
+  - DOMAIN-SUFFIX,account-tiktok.com
+  - DOMAIN-SUFFIX,f16-tiktok-common.ibytedtos.com
+  - DOMAIN-SUFFIX,lf16-muse-va.ibytedtos.com
+  - DOMAIN-SUFFIX,isnssdk.com
+  - DOMAIN-SUFFIX,musemuse.cn
+  - DOMAIN-SUFFIX,v16-tiktokcdn-com.akamaized.net
+  - DOMAIN-SUFFIX,p16-tiktokcdn-com.akamaized.net
+  - DOMAIN-SUFFIX,muscdn.com
+  - DOMAIN-SUFFIX,sf16-ttcdn-tos.ipstatp.com
+  - DOMAIN-SUFFIX,sf16-website-login.neutral.ttwstatic.com
+  - DOMAIN-SUFFIX,musical.ly
+  - DOMAIN-SUFFIX,byteoversea.net
+  - DOMAIN-SUFFIX,pstatp.com
+  - DOMAIN-SUFFIX,byteimg.com
+  - DOMAIN-SUFFIX,ibyteimg.com
+  - DOMAIN-SUFFIX,tiktokcdn-eu.com
+  - DOMAIN-SUFFIX,sgsnssdk.com
+  - DOMAIN-SUFFIX,tiktokcdn-in.com
+  - DOMAIN-SUFFIX,tiktokcdn-us.com
+  - DOMAIN-SUFFIX,tiktokcdn-us.com.atomile.com
+  - DOMAIN-SUFFIX,tiktokcdn.com.atomile.com
+  - DOMAIN-SUFFIX,tiktokcdn.com.c.bytetcdn.com
+  - DOMAIN-SUFFIX,tiktokcdn.com.c.worldfcdn.com
+  - DOMAIN-SUFFIX,tiktokcdn.com.rocket-cdn.com
+  - DOMAIN-SUFFIX,tiktokcdn.com
+  - DOMAIN-SUFFIX,tiktokd.org
+  - DOMAIN-SUFFIX,tiktokglobalshop.com
+  - DOMAIN-SUFFIX,tiktokv.com
+  - DOMAIN-SUFFIX,tiktokv.com.c.worldfcdn2.com
+  - DOMAIN-SUFFIX,tiktokv.com.c.worldfcdn.com
+  - DOMAIN-SUFFIX,tiktokw.eu
+  - DOMAIN-SUFFIX,tlivecdn.com
+  - DOMAIN-SUFFIX,ttlivecdn.com
+  - DOMAIN-SUFFIX,ttlivecdn.com.c.worldfcdn.com
+  - DOMAIN-SUFFIX,ttoversea.net
+  - DOMAIN-SUFFIX,ttoverseaus.net
+  - DOMAIN-SUFFIX,whoami.akamai.net
