@@ -21,7 +21,6 @@ payload:
   - DOMAIN-SUFFIX,signal.org
   - DOMAIN-SUFFIX,soundcloud.com
   - DOMAIN-SUFFIX,spotify.com
-  - DOMAIN-SUFFIX,tiktok.com
   - DOMAIN-SUFFIX,tor.eff.org
   - DOMAIN-SUFFIX,torproject.org
   - DOMAIN-SUFFIX,turbobit.net
@@ -112,6 +111,21 @@ payload:
   # Proton
   - DOMAIN-SUFFIX,protonvpn.com
   - DOMAIN-SUFFIX,proton.me
+  # Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.com
+  - DOMAIN-SUFFIX,whatsapp.net
+  - DOMAIN-SUFFIX,bintray.com
+  - DOMAIN-SUFFIX,whatsapp.biz
+  - DOMAIN-SUFFIX,whatsapp-plus.info
+  - DOMAIN-SUFFIX,whatsapp-plus.me
+  - DOMAIN-SUFFIX,whatsapp-plus.net
+  - DOMAIN-SUFFIX,whatsapp.cc
+  - DOMAIN-SUFFIX,whatsapp.info
+  - DOMAIN-SUFFIX,whatsapp.org
+  - DOMAIN-SUFFIX,whatsapp.tv
+  - DOMAIN-SUFFIX,whatsappbrand.com
+  - DOMAIN-SUFFIX,wl.co
+  - DOMAIN-SUFFIX,wa.me
   # Youtube
   - DOMAIN-SUFFIX,ytimg.com
   - DOMAIN-SUFFIX,googlevideo.com
