@@ -34,6 +34,8 @@ payload:
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,keyboard-layout-editor.com
   - DOMAIN-SUFFIX,nikkinikki.pages.dev
+  - DOMAIN-SUFFIX,hackerrank.com
+  - DOMAIN-SUFFIX,hrcdn.net
   # torrent trackers
   - DOMAIN-SUFFIX,nnmclub.ch
   - DOMAIN-SUFFIX,nnmclub.to
