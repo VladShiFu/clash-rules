@@ -37,6 +37,14 @@ payload:
   - DOMAIN-SUFFIX,hackerrank.com
   - DOMAIN-SUFFIX,hrcdn.net
   - DOMAIN-SUFFIX,liquibase.com
+  - DOMAIN-SUFFIX,vercel.app
+  - DOMAIN-SUFFIX,conduktor.io
+  - DOMAIN-SUFFIX,packages.k8s.io
+  - DOMAIN-SUFFIX,pkgs.k8s.io
+  - DOMAIN-SUFFIX,sing-box.sagernet.org
+  - DOMAIN-SUFFIX,speedtest.net
+  - DOMAIN-SUFFIX,leetcode.com
+  - DOMAIN-SUFFIX,leetcode.cn
   # torrent trackers
   - DOMAIN-SUFFIX,nnmclub.ch
   - DOMAIN-SUFFIX,nnmclub.to
@@ -139,6 +147,13 @@ payload:
 # =============================================================================
 # Whatsapp
 # =============================================================================
+  - DOMAIN,web.whatsapp.com
+  - DOMAIN-SUFFIX,cdn.whatsapp.net
+  - DOMAIN-SUFFIX,snr.whatsapp.net
+  - DOMAIN-SUFFIX,graph.facebook.com
+  - DOMAIN-SUFFIX,fbcdn.net
+  - DOMAIN-SUFFIX,fbcdn.com
+  - DOMAIN-SUFFIX,fbsbx.com
   - DOMAIN-SUFFIX,whatsapp.com
   - DOMAIN-SUFFIX,whatsapp.net
   - DOMAIN-SUFFIX,bintray.com
