@@ -45,6 +45,9 @@ payload:
   - DOMAIN-SUFFIX,speedtest.net
   - DOMAIN-SUFFIX,leetcode.com
   - DOMAIN-SUFFIX,leetcode.cn
+  - DOMAIN-SUFFIX,mermaidflow.app
+  - DOMAIN-SUFFIX,eraser.io
+  - DOMAIN-SUFFIX,mermaid.ai
   # torrent trackers
   - DOMAIN-SUFFIX,nnmclub.ch
   - DOMAIN-SUFFIX,nnmclub.to
